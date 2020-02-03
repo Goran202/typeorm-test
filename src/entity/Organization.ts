@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, OneToOne } from "typeorm";
+import { Location } from "./Location";
 
 @Entity()
 export class Organization {
@@ -7,4 +8,10 @@ export class Organization {
 
   @Column()
   name: string;
+
+  // @OneToOne(
+  //   type => Location,
+  //   location => location.organization
+  // )
+  // location: Location;
 }

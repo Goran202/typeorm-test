@@ -3,24 +3,25 @@ import {
   PrimaryGeneratedColumn,
   Column,
   OneToOne,
-  OneToMany,
   JoinColumn
 } from "typeorm";
+import { User } from "./User";
 import { Organization } from "./Organization";
 
 @Entity()
-export class Location {
+export class Trip {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
-  lat: number;
+  length: number;
 
   @Column()
-  lng: number;
+  count: Number;
 
-  @Column()
-  radius: number;
+  @OneToOne(type => User)
+  @JoinColumn()
+  user: User;
 
   @OneToOne(type => Organization)
   @JoinColumn()
